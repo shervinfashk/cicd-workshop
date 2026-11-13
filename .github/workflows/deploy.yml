@@ -12,6 +12,8 @@ permissions:
 
 jobs:
     build:
+        environment:
+            name: github-pages
         runs-on: ubuntu-latest
 
         steps:
@@ -31,6 +33,8 @@ jobs:
               run: npm test
 
             - name: Build
+              env:
+                  VITE_APP_GREETING: ${{ vars.APP_GREETING }}
               run: npm run build
 
             - name: Upload static files as artifact
