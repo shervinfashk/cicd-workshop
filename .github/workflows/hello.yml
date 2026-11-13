@@ -1,0 +1,19 @@
+name: Hello YML!!
+
+on:
+    workflow_dispatch:
+    push:
+        branches: main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Comment who wrote this
+              run: echo "Run started by ${{github.actor}}"
+
+            - name: Write several commands after each other
+              run: |
+                  npm ci
+                  npm test
